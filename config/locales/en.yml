@@ -1,0 +1,8 @@
+en:
+  label_issue_access_control: "Issue Access Control"
+  help_issue_access_control: "If selected, only the specified users/groups can view or edit this ticket. Leave empty for standard visibility."
+  permission_set_issue_access_control: "Set issue access control"
+  permission_view_all_restricted_issues: "View all restricted issues"
+  project_module_issue_access_control: "Issue Access Control"
+  label_filter: "Filter"
+  label_issue_access_control_allowed_members: "Allowed Users/Groups"

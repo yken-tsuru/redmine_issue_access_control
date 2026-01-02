@@ -1,0 +1,62 @@
+<% if @issue.project && User.current.allowed_to?(:set_issue_access_control, @issue.project) %>
+  <%
+     # Always default to collapsed
+     fieldset_class = "collapsible collapsed"
+     content_style = "display: none;"
+     legend_class = "icon icon-collapsed"
+  %>
+  <fieldset class="<%= fieldset_class %>" id="issue_access_control_fieldset">
+    <legend onclick="toggleFieldset(this);" class="<%= legend_class %>"><%= l(:label_issue_access_control) %></legend>
+    <div style="<%= content_style %>">
+      <p>
+        <%# Search Filter input %>
+        <input type="text" id="issue_access_control_search"
+               placeholder="<%= l(:label_filter) %>"
+               style="width: 95%; margin-bottom: 5px; padding: 3px;" />
+
+        <%# Scrollable Container %>
+        <span id="issue_access_control_inputs" style="display: block; max-height: 200px; overflow-y: auto; border: 1px solid #ebebeb; padding: 5px; background: white;">
+          <%# Hidden field to ensure params are sent even if no checkboxes are checked %>
+          <%= hidden_field_tag 'issue_access_control[principal_ids][]', '' %>
+          <% @issue.project.principals.sort.each do |principal| %>
+            <label class="floating" data-name="<%= principal.name.downcase %>" style="display: block; float: left; width: 270px; border-bottom: 1px solid #ddd;">
+              <%= check_box_tag 'issue_access_control[principal_ids][]',
+                                principal.id,
+                                @issue.allowed_principals.include?(principal),
+                                id: "issue_access_control_principal_#{principal.id}" %>
+              <%= principal.name %>
+            </label>
+          <% end %>
+        </span>
+
+        <br style="clear:both;" />
+        <em class="info"><%= l(:help_issue_access_control) %></em>
+      </p>
+
+      <script>
+        // Simple client-side filtering script
+        (function() {
+          var searchInput = document.getElementById('issue_access_control_search');
+          var container = document.getElementById('issue_access_control_inputs');
+
+          if (searchInput && container) {
+            searchInput.addEventListener('keyup', function(e) {
+              var term = e.target.value.toLowerCase();
+              var labels = container.querySelectorAll('label.floating');
+
+              for (var i = 0; i < labels.length; i++) {
+                var label = labels[i];
+                var name = label.getAttribute('data-name');
+                if (term === '' || name.indexOf(term) > -1) {
+                  label.style.display = 'block';
+                } else {
+                  label.style.display = 'none';
+                }
+              }
+            });
+          }
+        })();
+      </script>
+    </div>
+  </fieldset>
+<% end %>

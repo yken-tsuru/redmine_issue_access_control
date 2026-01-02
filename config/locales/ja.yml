@@ -1,0 +1,8 @@
+ja:
+  label_issue_access_control: "チケットのアクセス制限"
+  help_issue_access_control: "選択した場合、指定されたユーザーまたはグループのみがこのチケットを閲覧・編集できます。未選択の場合は標準の権限設定に従います。"
+  permission_set_issue_access_control: "チケットのアクセス制限設定"
+  permission_view_all_restricted_issues: "制限されたチケットの全閲覧"
+  project_module_issue_access_control: "チケットアクセス制御"
+  label_filter: "フィルタ"
+  label_issue_access_control_allowed_members: "閲覧許可メンバー"

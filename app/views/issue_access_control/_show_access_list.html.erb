@@ -1,0 +1,11 @@
+<% if @issue.issue_access_rules.any? %>
+  <hr />
+  <div class="issue_access_control attributes">
+    <div class="attribute">
+      <div class="label"><%= l(:label_issue_access_control_allowed_members) %>:</div>
+      <div class="value">
+        <%= @issue.allowed_principals.map(&:name).join(', ') %>
+      </div>
+    </div>
+  </div>
+<% end %>
