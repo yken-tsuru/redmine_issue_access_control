@@ -5,8 +5,8 @@ Redmine::Plugin.register :redmine_issue_access_control do
   author 'Antigravity'
   description 'Granular access control for issues based on users and groups.'
   version '0.0.1'
-  url 'https://github.com/example/redmine_issue_access_control'
-  author_url 'https://github.com/example'
+  url 'https://github.com/yken-tsuru/redmine_issue_access_controll'
+  author_url 'https://github.com/yken-tsuru'
 
   project_module :issue_access_control do
     permission :set_issue_access_control, {}
