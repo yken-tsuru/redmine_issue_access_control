@@ -1,0 +1,74 @@
+/**
+ * Issue Access Control Plugin - Styles
+ * Compatible with Redmine 4+
+ */
+
+/* Search input styling */
+.issue-access-control-search {
+  font-size: 13px;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+
+.issue-access-control-search:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Principal selection container */
+.issue-access-control-inputs {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Principal label styling */
+.issue-access-control-label {
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 8px;
+  transition: background-color 0.15s ease;
+}
+
+.issue-access-control-label:hover {
+  background-color: #f0f0f0;
+}
+
+.issue-access-control-label input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.issue-access-control-label input[type="checkbox"]:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Fieldset styling */
+#issue_access_control_fieldset {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+#issue_access_control_fieldset > legend {
+  padding: 0 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#issue_access_control_fieldset > legend:hover {
+  text-decoration: underline;
+}
+
+/* Help text styling */
+.issue-access-control-help {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
